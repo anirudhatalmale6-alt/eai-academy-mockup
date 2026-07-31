@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Empathetic AI Academy — Modern direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F3EC; --paper2:#EFEBE1; --ink:#17140F; --ink2:#4a453c;
+    --line:#ded7c8; --accent:#1E6B54; --accent2:#C56B3D; --card:#fffdf8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{text-decoration:none;color:inherit}
+  .serif{font-family:"Fraunces",Georgia,serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:500;font-size:15px;border-radius:2px;padding:14px 24px;cursor:pointer;transition:.18s;border:1px solid var(--ink)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  /* top strip */
+  .strip{border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2)}
+  .strip .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .strip a{color:var(--ink);font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:1px}
+  nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(246,243,236,.9);backdrop-filter:blur(8px);z-index:20}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:baseline;gap:12px}
+  .brand .n{font-family:"Fraunces";font-weight:600;font-size:22px;letter-spacing:-.4px}
+  .brand .t{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink2)}
+  .navlinks{display:flex;gap:30px;font-size:14.5px;color:var(--ink2)}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a.ext{color:var(--ink);font-weight:500}
+  /* hero */
+  .hero{padding:74px 0 56px;border-bottom:1px solid var(--line)}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.5px;color:var(--ink2);text-transform:uppercase}
+  .kicker .oa{width:18px;height:18px;border-radius:50%;background:var(--ink);display:inline-flex;align-items:center;justify-content:center}
+  .kicker .oa svg{width:11px;height:11px;fill:var(--paper)}
+  h1{font-family:"Fraunces";font-weight:500;font-size:70px;line-height:1.0;letter-spacing:-1.5px;margin-top:26px;max-width:940px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .herofoot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:40px;flex-wrap:wrap}
+  .herofoot p{max-width:440px;color:var(--ink2);font-size:17.5px}
+  .heroctas{display:flex;gap:14px}
+  /* marquee stats row */
+  .facts{display:flex;gap:0;border-bottom:1px solid var(--line)}
+  .fact{flex:1;padding:26px 32px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:none}
+  .fact b{font-family:"Fraunces";font-size:30px;font-weight:600;letter-spacing:-.5px}
+  .fact span{display:block;color:var(--ink2);font-size:13.5px;margin-top:2px}
+  /* catalog index */
+  .sec{padding:64px 0}
+  .sechead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:16px}
+  .sechead h2{font-family:"Fraunces";font-weight:500;font-size:34px;letter-spacing:-.5px}
+  .sechead span{color:var(--ink2);font-size:14px}
+  .row{display:grid;grid-template-columns:52px 1fr 150px 120px 96px;gap:20px;align-items:center;padding:26px 8px;border-bottom:1px solid var(--line);transition:.15s}
+  .row:hover{background:var(--paper2);padding-left:20px;padding-right:0}
+  .row .num{font-family:"Fraunces";font-size:20px;color:var(--ink2)}
+  .row .ti{font-family:"Fraunces";font-size:22px;font-weight:500;letter-spacing:-.3px}
+  .row .de{color:var(--ink2);font-size:14px;margin-top:4px}
+  .row .lv{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink2)}
+  .row .pr{font-family:"Fraunces";font-size:20px;text-align:right}
+  .row .pr.free{color:var(--accent);font-style:italic}
+  .row .go{justify-self:end;width:38px;height:38px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.15s}
+  .row:hover .go{background:var(--ink);color:var(--paper)}
+  /* build band */
+  .build{background:var(--ink);color:var(--paper);padding:60px 0}
+  .build .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .build h2{font-family:"Fraunces";font-weight:500;font-size:40px;line-height:1.08;letter-spacing:-.6px}
+  .build h2 em{font-style:italic;color:#8fd3bf}
+  .build p{color:#c9c3b5;margin-top:18px;font-size:16.5px;max-width:440px}
+  .buildlist{border-top:1px solid #3a352c}
+  .bi{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #3a352c;font-size:15px}
+  .bi b{font-family:"Fraunces";font-weight:500}
+  .bi span{color:#a49d8e;font-size:13.5px;max-width:230px;text-align:right}
+  footer{padding:40px 0;color:var(--ink2);font-size:13.5px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+  .badge-mock{position:fixed;bottom:14px;right:14px;background:var(--ink);color:var(--paper);font-size:12px;padding:8px 13px;border-radius:2px;opacity:.9;z-index:30}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Part of <strong>Empathetic AI</strong> — production AI for tax, accounting &amp; finance.</span>
+    <a>Explore our AI products →</a>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap navrow">
+    <div class="brand">
+      <span class="n">Empathetic AI</span><span class="t">Academy</span>
+    </div>
+    <div class="navlinks">
+      <a>Courses</a><a>Certification</a><a>For Teams</a><a>Pricing</a><a class="ext">AI Products →</a>
+    </div>
+    <a class="btn btn-primary" style="padding:11px 20px">Start free</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker"><span class="oa"><svg viewBox="0 0 24 24"><path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.51-2.9A5.98 5.98 0 0 0 10.75 0a6.05 6.05 0 0 0-5.77 4.19 5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.52 2.9A5.98 5.98 0 0 0 13.24 24a6.05 6.05 0 0 0 5.77-4.2 5.98 5.98 0 0 0 4-2.9 6.05 6.05 0 0 0-.73-7.08z"/></svg></span> OpenAI Select Partner · Official training</span>
+    <h1 class="serif">The craft of using AI<br>in <em>finance</em> — taught by<br>the people who build it.</h1>
+    <div class="herofoot">
+      <p>Considered, credible training for tax, accounting and finance professionals. Learn to apply AI where accuracy, governance and judgement actually matter.</p>
+      <div class="heroctas">
+        <a class="btn btn-primary">Start the free course →</a>
+        <a class="btn btn-ghost">View catalogue</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap" style="display:flex;padding:0;max-width:1120px">
+    <div class="fact"><b>12</b><span>Courses &amp; growing</span></div>
+    <div class="fact"><b>1,500+</b><span>Firms onboard</span></div>
+    <div class="fact"><b>200,000+</b><span>Professional hours saved</span></div>
+    <div class="fact"><b>50+</b><span>AI agents in production</span></div>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sechead">
+      <h2 class="serif">The catalogue</h2>
+      <span>Start free · go deep when you're ready</span>
+    </div>
+
+    <a class="row">
+      <span class="num">01</span>
+      <div><div class="ti serif">AI Foundations for Finance</div><div class="de">What AI can and can't do in tax &amp; accounting — used responsibly.</div></div>
+      <span class="lv">Beginner · 1h 20m</span>
+      <span class="pr free">Free</span>
+      <span class="go">→</span>
+    </a>
+    <a class="row">
+      <span class="num">02</span>
+      <div><div class="ti serif">Prompting for Auditable Answers</div><div class="de">Reliable, source-traceable outputs you can defend in regulated work.</div></div>
+      <span class="lv">Beginner · 2h 40m</span>
+      <span class="pr">$79</span>
+      <span class="go">→</span>
+    </a>
+    <a class="row">
+      <span class="num">03</span>
+      <div><div class="ti serif">Automating Tax Workflows with Agents</div><div class="de">Design agent workflows for real firm tasks, with a human in the loop.</div></div>
+      <span class="lv">Intermediate · 4h 10m</span>
+      <span class="pr">$149</span>
+      <span class="go">→</span>
+    </a>
+    <a class="row">
+      <span class="num">04</span>
+      <div><div class="ti serif">AI Governance, Risk &amp; Compliance</div><div class="de">Deploy AI without breaching duty of care — controls and audit trails.</div></div>
+      <span class="lv">Intermediate · 3h 30m</span>
+      <span class="pr">$149</span>
+      <span class="go">→</span>
+    </a>
+    <a class="row">
+      <span class="num">05</span>
+      <div><div class="ti serif">Certified AI-in-Finance Practitioner</div><div class="de">The capstone path. Complete it, pass the assessment, earn the credential.</div></div>
+      <span class="lv">Certificate · 5 courses</span>
+      <span class="pr">$399</span>
+      <span class="go">→</span>
+    </a>
+  </div>
+</section>
+
+<section class="build">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Taught by a company that <em>ships AI</em> in production.</h2>
+      <p>Empathetic AI isn't a training brand that dabbles in AI — we build the agents finance teams use daily. The Academy passes on exactly what we've learned deploying AI in regulated, real-world work.</p>
+      <div style="margin-top:28px;display:flex;gap:14px">
+        <a class="btn" style="border-color:var(--paper);color:var(--paper)">Explore our AI products →</a>
+        <a class="btn" style="border-color:#5a5445;color:var(--paper)">Request a demo</a>
+      </div>
+    </div>
+    <div class="buildlist">
+      <div class="bi"><b>Our AI products</b><span>Vertical agents — the same tools behind the courses</span></div>
+      <div class="bi"><b>Real case studies</b><span>How 1,500+ firms save 200,000+ hours</span></div>
+      <div class="bi"><b>OpenAI Select Partner</b><span>Built to a partner standard for governance &amp; security</span></div>
+      <div class="bi"><b>The front door</b><span>Learners become product customers</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span class="serif" style="font-size:17px">Empathetic AI Academy</span>
+  <span>Courses · Certification · For Teams · © Empathetic AI</span>
+</footer>
+
+<div class="badge-mock">Design direction B · Editorial</div>
+</body>
+</html>
