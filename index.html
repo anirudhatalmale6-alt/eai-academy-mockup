@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Empathetic AI Academy — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#3C83F6; --blue-deep:#0B64F4; --ink:#0f1e33; --slate:#516179;
+    --line:#e1e7ef; --soft:#f1f5f9; --wash:#eef4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"DM Sans",Inter,system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;border-radius:12px;padding:13px 22px;cursor:pointer;transition:.15s;border:1px solid transparent}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(60,131,246,.28)}
+  .btn-primary:hover{background:var(--blue-deep)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+  .logo .mark{width:34px;height:34px;border-radius:50%;background:conic-gradient(from 210deg,#7c5cff,#3C83F6,#22d3ee,#7c5cff);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+  .logo small{display:block;font-size:11px;color:var(--slate);font-weight:600;letter-spacing:2px}
+  .navlinks{display:flex;gap:26px;font-size:15px;color:var(--slate);font-weight:500}
+  .navlinks a:hover{color:var(--ink)}
+  .navcta{display:flex;gap:10px;align-items:center}
+  /* hero */
+  .hero{background:radial-gradient(1200px 500px at 50% -120px,var(--wash),#fff);padding:64px 0 26px;text-align:center}
+  .partner{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px 8px 10px;font-size:13.5px;font-weight:600;color:var(--ink);box-shadow:0 6px 18px rgba(15,30,51,.06)}
+  .partner .oa{width:22px;height:22px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center}
+  .partner .oa svg{width:14px;height:14px}
+  .partner .dot{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.15)}
+  h1{font-size:56px;line-height:1.04;letter-spacing:-1.5px;margin:22px auto 0;max-width:820px;font-weight:700}
+  h1 .g{color:var(--blue)}
+  .sub{color:var(--slate);font-size:19px;max-width:640px;margin:20px auto 0;line-height:1.5}
+  .herocta{display:flex;gap:14px;justify-content:center;margin-top:30px}
+  .pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;color:var(--slate);font-weight:500;display:flex;align-items:center;gap:8px}
+  .pill i{width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block}
+  /* stats */
+  .stats{display:flex;gap:40px;justify-content:center;border-top:1px solid var(--line);margin-top:46px;padding-top:30px}
+  .stat b{display:block;font-size:34px;color:var(--blue);font-weight:700;letter-spacing:-1px}
+  .stat span{color:var(--slate);font-size:14.5px}
+  /* section */
+  section.cat{padding:70px 0 40px}
+  .eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-align:center}
+  h2{font-size:38px;letter-spacing:-1px;text-align:center;margin-top:10px;font-weight:700}
+  .lead{color:var(--slate);text-align:center;max-width:600px;margin:14px auto 0;font-size:17px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;transition:.18s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(15,30,51,.10);border-color:#cfe0ff}
+  .thumb{height:132px;background:linear-gradient(135deg,#3C83F6,#7c5cff);position:relative;display:flex;align-items:flex-end;padding:14px}
+  .thumb.t2{background:linear-gradient(135deg,#0ea5e9,#3C83F6)}
+  .thumb.t3{background:linear-gradient(135deg,#6366f1,#22d3ee)}
+  .thumb.t4{background:linear-gradient(135deg,#0B64F4,#4f46e5)}
+  .thumb.t5{background:linear-gradient(135deg,#059669,#22d3ee)}
+  .thumb.t6{background:linear-gradient(135deg,#7c3aed,#3C83F6)}
+  .lvl{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--ink);font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:8px;letter-spacing:.3px}
+  .price{position:absolute;top:14px;right:14px;background:rgba(15,30,51,.55);color:#fff;font-size:13px;font-weight:700;padding:5px 11px;border-radius:8px}
+  .price.free{background:#16a34a}
+  .cbody{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .cbody h3{font-size:18.5px;line-height:1.25;letter-spacing:-.3px}
+  .cbody p{color:var(--slate);font-size:14px;margin-top:8px;line-height:1.5;flex:1}
+  .meta{display:flex;gap:16px;color:var(--slate);font-size:13px;margin-top:16px;padding-top:14px;border-top:1px solid var(--soft)}
+  .meta span{display:flex;align-items:center;gap:6px}
+  /* cert band */
+  .band{background:linear-gradient(135deg,#0f1e33,#12294a);color:#fff;border-radius:24px;margin:60px 0 10px;padding:48px;display:flex;align-items:center;gap:40px}
+  .band .l{flex:1}
+  .band h2{text-align:left;color:#fff;font-size:32px}
+  .band p{color:#b9c6db;margin-top:14px;font-size:16px;line-height:1.55;max-width:460px}
+  .certcard{width:300px;background:#fff;color:var(--ink);border-radius:16px;padding:24px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+  .certcard .seal{width:64px;height:64px;border-radius:50%;background:conic-gradient(from 210deg,#7c5cff,#3C83F6,#22d3ee,#7c5cff);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px}
+  .certcard b{font-size:16px}
+  .certcard small{display:block;color:var(--slate);font-size:12.5px;margin-top:6px}
+  .certcard .line{border-top:1px dashed var(--line);margin:16px 0}
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:34px 0;color:var(--slate);font-size:14px;display:flex;justify-content:space-between;align-items:center}
+  .badge-mock{position:fixed;bottom:14px;right:14px;background:var(--ink);color:#fff;font-size:12px;padding:8px 13px;border-radius:10px;opacity:.85;z-index:30}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap navrow">
+    <div class="logo">
+      <span class="mark">≋</span>
+      <div>EMPATHETIC AI<small>ACADEMY</small></div>
+    </div>
+    <div class="navlinks">
+      <a>Courses</a><a>Learning Paths</a><a>Certifications</a><a>For Teams</a><a>Pricing</a>
+    </div>
+    <div class="navcta">
+      <a class="btn btn-ghost">Log in</a>
+      <a class="btn btn-primary">Start free →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="partner">
+      <span class="oa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.51-2.9A5.98 5.98 0 0 0 10.75 0a6.05 6.05 0 0 0-5.77 4.19 5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.52 2.9A5.98 5.98 0 0 0 13.24 24a6.05 6.05 0 0 0 5.77-4.2 5.98 5.98 0 0 0 4-2.9 6.05 6.05 0 0 0-.73-7.08zm-9.04 12.6a4.48 4.48 0 0 1-2.88-1.04l4.25-2.45a.7.7 0 0 0 .35-.6v-6l1.8 1.04v4.96a4.5 4.5 0 0 1-3.52 4.1zM4.9 18.64a4.48 4.48 0 0 1-.54-3.02l4.25 2.45a.7.7 0 0 0 .7 0l5.2-3v2.08l-4.5 2.6a4.5 4.5 0 0 1-5.11-1.11zM3.7 8.2a4.48 4.48 0 0 1 2.34-1.97v5a.7.7 0 0 0 .35.6l5.2 3-1.8 1.04-4.5-2.6A4.5 4.5 0 0 1 3.7 8.2zm13.5 3.14-5.2-3L13.8 7.3l4.5 2.6a4.5 4.5 0 0 1-.68 8.12v-5a.7.7 0 0 0-.42-.68zm1.79-2.7-4.25-2.45a.7.7 0 0 0-.7 0l-5.2 3V6.31l4.5-2.6a4.5 4.5 0 0 1 5.65 6.93zM8.9 12.35 7.1 11.3V6.34a4.5 4.5 0 0 1 7.38-3.45L10.23 5.34a.7.7 0 0 0-.35.6z"/></svg></span>
+      OpenAI Select Partner
+      <span style="width:1px;height:16px;background:var(--line)"></span>
+      <span class="dot"></span> Official training
+    </div>
+    <h1>Master <span class="g">AI in finance</span>,<br>from the people trusted to build it.</h1>
+    <p class="sub">Practical, credible training for tax, accounting and finance professionals — built by an OpenAI Select Partner. Learn to use AI safely in regulated work.</p>
+    <div class="herocta">
+      <a class="btn btn-primary">Start the free course →</a>
+      <a class="btn btn-ghost">Browse all courses</a>
+    </div>
+    <div class="pills">
+      <span class="pill"><i></i>Built for regulated work</span>
+      <span class="pill"><i></i>Hands-on, not theory</span>
+      <span class="pill"><i></i>CPD-aligned</span>
+      <span class="pill"><i></i>Certificate on completion</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>12</b><span>Courses &amp; growing</span></div>
+      <div class="stat"><b>1,500+</b><span>Firms already onboard</span></div>
+      <div class="stat"><b>200k+</b><span>Hours saved with AI</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="cat">
+  <div class="wrap">
+    <p class="eyebrow">Course Catalog</p>
+    <h2>Start free. Go deep when you're ready.</h2>
+    <p class="lead">A learning path from your first prompt to deploying governed AI workflows across your firm.</p>
+
+    <div class="grid">
+      <a class="card">
+        <div class="thumb"><span class="lvl">BEGINNER</span><span class="price free">FREE</span></div>
+        <div class="cbody">
+          <h3>AI Foundations for Finance Professionals</h3>
+          <p>What AI can and can't do in tax &amp; accounting, and how to use it responsibly. Your starting point.</p>
+          <div class="meta"><span>◷ 1h 20m</span><span>▤ 6 lessons</span><span>★ 4.9</span></div>
+        </div>
+      </a>
+      <a class="card">
+        <div class="thumb t2"><span class="lvl">BEGINNER</span><span class="price">$79</span></div>
+        <div class="cbody">
+          <h3>Prompting for Accurate, Auditable Answers</h3>
+          <p>Get reliable, source-traceable outputs you can defend in regulated work. Templates included.</p>
+          <div class="meta"><span>◷ 2h 40m</span><span>▤ 11 lessons</span><span>★ 4.8</span></div>
+        </div>
+      </a>
+      <a class="card">
+        <div class="thumb t3"><span class="lvl">INTERMEDIATE</span><span class="price">$149</span></div>
+        <div class="cbody">
+          <h3>Automating Tax Workflows with AI Agents</h3>
+          <p>Design agent workflows that handle real firm tasks end to end — with a human in the loop.</p>
+          <div class="meta"><span>◷ 4h 10m</span><span>▤ 18 lessons</span><span>★ 4.9</span></div>
+        </div>
+      </a>
+      <a class="card">
+        <div class="thumb t4"><span class="lvl">INTERMEDIATE</span><span class="price">$149</span></div>
+        <div class="cbody">
+          <h3>AI Governance, Risk &amp; Compliance</h3>
+          <p>Deploy AI without breaching duty of care — data security, review controls and audit trails.</p>
+          <div class="meta"><span>◷ 3h 30m</span><span>▤ 14 lessons</span><span>★ 5.0</span></div>
+        </div>
+      </a>
+      <a class="card">
+        <div class="thumb t5"><span class="lvl">ADVANCED</span><span class="price">$199</span></div>
+        <div class="cbody">
+          <h3>Building Your Firm's Private AI Assistant</h3>
+          <p>Stand up a secure, firm-specific assistant on your own data. From pilot to rollout.</p>
+          <div class="meta"><span>◷ 5h 00m</span><span>▤ 22 lessons</span><span>★ 4.8</span></div>
+        </div>
+      </a>
+      <a class="card">
+        <div class="thumb t6"><span class="lvl">CERTIFICATE</span><span class="price">$399</span></div>
+        <div class="cbody">
+          <h3>Certified AI-in-Finance Practitioner</h3>
+          <p>The capstone track. Complete the path, pass the assessment, earn the credential.</p>
+          <div class="meta"><span>◷ Path</span><span>▤ 5 courses</span><span>★ 5.0</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="band">
+      <div class="l">
+        <p class="eyebrow" style="text-align:left">Certification</p>
+        <h2>A credential firms recognise.</h2>
+        <p>Every course ends with a shareable certificate. Complete the full path to become a Certified AI-in-Finance Practitioner — backed by an OpenAI Select Partner and ready for your LinkedIn and CPD records.</p>
+        <div style="margin-top:22px"><a class="btn btn-primary">See the certification path →</a></div>
+      </div>
+      <div class="certcard">
+        <div class="seal">✓</div>
+        <b>Certificate of Completion</b>
+        <small>Certified AI-in-Finance Practitioner</small>
+        <div class="line"></div>
+        <div style="text-align:left;font-size:13px;color:var(--slate)">Awarded to<br><b style="color:var(--ink);font-size:15px">Angela Shi</b></div>
+        <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:11px;color:var(--slate)"><span>Empathetic AI Academy</span><span>OpenAI Select Partner</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="logo"><span class="mark" style="width:26px;height:26px;font-size:12px">≋</span> Empathetic AI Academy</div>
+  <div>Courses · Certifications · For Teams · © Empathetic AI</div>
+</footer>
+
+<div class="badge-mock">Design mockup · Empathetic AI Academy</div>
+</body>
+</html>
